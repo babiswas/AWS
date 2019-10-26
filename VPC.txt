@@ -1,0 +1,25 @@
+VPC(Virtual Private Cloud)
+The scope of VPC is region.
+AZ is DataCenter in region
+Availibility Zone(AZ)
+
+
+VPC is asssocitaed with IG or VPG.
+Subnet are range of IP adress
+A subnet constitute an AZ.
+Security groups applies at the instance level.
+SG 1st layer of security.
+Inbound and Outbound traffic,protocol support.
+A security group is just like a firewall.
+
+NACL.(Subnet level)
+Applies at all instances in subnet.
+Default Route table is associated with the VPC.
+
+http(80)
+https(443)
+ssh(22)
+
+Remote DEsktop Protocol(RDP)
+
+
