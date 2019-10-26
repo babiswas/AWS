@@ -1,0 +1,32 @@
+18 Regions.
+Availability Zones.(Data Center)
+Availability Zones are connected by private networks.
+Edge locations.(Points of presence of aws CDN service)
+Servers should be in atleast two availibility zones.
+
+AZ(18)
+---
+EC2
+EBS
+RDS
+Subnet
+Elastic File
+System
+Redshift Node.
+
+
+Regional:
+s3 bucket
+AMI
+Snapshot(EBS/RDS)
+Dynamo DB
+VPC
+Elastic IP
+SQS,SNS
+Cloud Watch Metrics
+
+Global
+IAM Entities
+Route 53
+cloudFront
+
