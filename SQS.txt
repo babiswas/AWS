@@ -1,0 +1,122 @@
+SQS(Simple Queue Service)
+1.Reliable.
+2.Scalable.
+3.Fully managed service.
+Type of queue in SQS
+1.Standard Queue.
+2.FIFO Queue.
+>SQS deletes messages that is in the queue more than retention period.
+>The Retention period can be configured.
+>Decoupling.
+
+Standard queue:
+--------------
+>Standard Queue is a default type of queue.(Default queue).
+>Unlimited no of transaction per second.(Unlimited Transaction).
+>Support at least once message delivery.(At least once delivery).
+>Standard queue provide best effort ordering.(Best effort ordering).
+Uploading Media.
+Credit card validation request.
+Batch messages for future processing.
+
+
+FIFO Queue:
+-----------
+1.All the capabilities of standard queue.
+2.FIFO queue is useful where duplicates cannot be tolerated.
+3.Order of operations and events are critical.
+4.FIFO queue support 3000 messages per second with batching
+5.FIFO queue support 300 messages per action.
+
+
+AWS SQS Architecture:
+--------------------
+1.Standard Queue
+2.FIFO queue.
+
+Three parts of the mesage queue service
+1.Components
+2.Queue
+3.Message
+
+
+SQS message lifecycle:
+---------------------
+Visibility timeout period.
+Within the VT the message should be processed and deleted.
+ComponentA and ComponentB competes for a message ,after one recieves it ,the other has to wait for the visibility timeout.
+
+*Visibility Timeout(standard queue)
+
+Standard Queue(Create)
+---------------------
+Default queue type is always standard.
+Queuename.FIFO for FIFO queue queue.
+Standard queue is supported in all regions.
+Deletion of the queue takes 60 seconds.
+A standard queue cannot be converted into FIFO queue.
+ABC.FIFO  this is a FIFO queue.
+
+
+Requirement and Attribute:
+---------------------------
+1.Visibility Time out.
+2.Retention Period.
+3.MaximumMessageSize.
+4.Delivery delay.#After how much time the message becomes visible to the queue after it is visible.
+5.Recieve Message Wait time.#How long a process should wait for a message.
+6.Redrive policy
+7.
+
+
+Dead Letter Queue Settings:
+---------------------------
+Server Side encryption settings:
+1.Use SSE
+2.CMK
+3.Data Queue Reuse Period.
+
+
+Requirement for standard queue:
+-------------------------------
+Hash is used to figureout duplication.
+SHA-256
+
+
+Deadletter Queue:
+----------------
+The message that couldn't be processed by a consumer is inserted into dead letter queue.
+Every queue has a dead letter queue associated with it.
+Better to have a message retention period of more than 7 days.
+
+
+How to send messages to AWS SQS queue:
+--------------------------------------
+https://www.youtube.com/watch?v=DJFJzLneQWM&list=PLrDJzKfz9AUvnUoCvwesGNaD55Wyljjzh&index=5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
