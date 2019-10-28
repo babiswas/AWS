@@ -1,0 +1,144 @@
+Dynamo DB:
+NoSQL Database
+What is partition key?
+What is sort key?
+
+Q.What is dynamo db?
+A fast flexible NoSQL database.
+
+Eventual Consistent Reads
+Strongly Consistent Reads.
+
+items
+attributes
+primary key is partition key in Dynamo db
+Composite key
+
+*partition key
+*sort key
+
+
+Dynamo DB table:
+Item count correspond to a row in dynamo db.
+
+Item correspond to rows in dynamo db
+
+Overview
+Items
+
+
+
+import boto3
+def lambda_handle(event,context):
+   dynmo=boto3.resource("dynamodb",region_name="us-east-1")
+   table=dynmo.create_table(
+    TableName="employee",
+    KeySchema=[
+     {
+       "AttributeName":"username",
+       "KeyType":'HASH'
+     },
+      {
+       "AttributeName":"last_name",
+       "KeyType":'RANGE'
+     }
+    ]
+    AttributeDefinitions=[
+    {
+      "AttributeName":"username",
+       "AttributeType":'S'
+    },
+    {
+      
+      "AttributeName":"username",
+      "AttributeType":'S'
+    }
+    ]
+    ProvisionedThroughput={
+      "ReadCapacityUnits":5,
+      "WriteCapacityUnits":5
+    }
+   )
+   table.meta.client.get_waiter('table_exists').wait(TableName='users')
+   print(table.item_count)
+   return "Hello Lambda"
+
+import boto3
+def lambda_handler(event,context):
+   dynamodb=boto3.resource('dynamodb',region_name='us-east-1')
+   table=dynamodb.Table('users')
+   print(table.creation_date_time)
+   table.put_item(
+       Item={
+          'username':"Hello",
+          'lastname':"Doe1",
+          'age':25,
+          'account_type':'standard_user'
+          })
+   return "Hello from lambda"
+
+
+Link to dynamo db tutorial.
+https://sysadmins.co.za/interfacing-amazon-dynamodb-with-python-using-boto3/
+
+Dynamo DB Scan Operation:
+-------------------------
+
+import boto3
+from boto3.dynamodb.conditions import Key
+from boto3.dynamodb.conditions import Attr
+
+def lambda_handler(event,context):
+    dynamodb=boto3.resource('dynamodb',region_name='us-east-1')
+    table=dynamodb.Table('users')
+    response=table.scan(Select='ALL_ATTRIBUTES',FilterExpression=Attr('username').begins_with("j"))
+    items=response["item"]
+    print("hello")
+    print(items)
+    return "Hello from lambda"
+
+
+import boto3
+def lambda_handler(event,context):
+    dynamodb=boto3.resource('dynamodb',region_name='us-east-1')
+    table=dynamodb.Table('users')
+    response=table.get_item(
+       Key={
+         'username':'jandoe1',
+         'lastname':'Doe1'
+        }
+    )
+    item=response['Item']
+    print(item)
+    return "Hello from Lambda"
+
+The attribute with which you want to make query you have to make that partition key.
+
+import boto3
+from boto3.dynamodb.conditions import Key,Attr
+def lambda_handler(event,context):
+    dynamodb=boto3.resource('dynamodb',region_name='us-east-1')
+    table=dynamodb.Table('users')
+    response=table.query(
+     IndexName='account-type-index',
+     KeyConditionExpression=Key('account_type').eq('standard_user')
+    )
+    items=response['items']
+    print(items)
+    return "Hello from lambda"
+
+     
+    )
+    
+DynamoDB Capacity Units:
+
+ReadCapacity and WriteCapacity.
+
+Indexing in DynamoDB:
+--------------------
+
+
+
+
+  
+
