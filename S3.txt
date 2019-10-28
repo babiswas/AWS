@@ -1,0 +1,97 @@
+S3 Bucket:
+S3 service is for storage,access,backup.
+Pay as you use.
+They are reliable scalable and secure.
+
+What are the type of storage?
+1.EBS(Elastic block storage)
+2.S3 
+3.EFS(Elastic File System)
+4.Glacier
+5.Storage Gateway
+6.Snowball
+
+S3(Simple Storage Service)
+Maximum size of the file is 5TB
+11 9 durability
+High Availibility.
+
+Security:
+1.Bucket Policy
+2.Encryption
+
+S3 is a regional service no restricted to one AVZ
+1.Frequently Accessed
+2.Infrequent Data Access
+3.Glacier
+
+
+Object consists of key and metadata.
+A bucket store objects
+Scope of S3 is region.
+
+5TB is the maximum limit of the file in S3 bucket.
+
+We need to choose region while creating a bucket.
+Security:
+Bucket Policy
+Encryption
+
+Object Transition
+Object lifecycle
+ObjectVersioning
+
+S3 standard(Frequently access data)
+Infrequent Access(Less Frequently access data)
+Archieved(Glacier)
+S3 RRS(Reduced REdundancy Storage)(Non Critical)
+
+OneZone 1A storage class
+Lifecycle Management.
+Moving the data from one storage tier to another storage tier.
+Transition actions
+
+Transition,Expiration
+
+
+
+Bucket Policy:(I AM policy)
+Bucket policy is written in json script.
+*Bucket Policy
+Allow user connecting to the S3 bucket
+Allow user coinnecting to the S3 bucket.
+
+Data Protection means encryption while the data is at rest or while the data is transmitted.
+
+Versioning?
+Two file stored in S3 bucket with the same filename.
+Then they will have different versions.
+
+Two files stored with same file name they will have different version.
+
+Cross REgion Replication:
+Management.
+
+
+Transfer Acceleration:
+Cloudfront is (CDN)
+
+If transfer acceleration is enabled than data will be copied to cloudfront(CDN) and from there it will be copied to destination bucket.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
