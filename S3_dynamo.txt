@@ -1,0 +1,112 @@
+DynamoDB
+--------
+
+import boto3
+
+#Inserting data in the dynamodb.
+
+db=boto3.resource('dynamodb')
+table=db.Table('employees')
+table.put_item(
+  Item={
+   'emp_id':"2",
+   'name':"Nitin",
+   'Age':"24"
+}
+)
+
+import boto3
+db=boto3.resource('dynamodb')
+table=db.Table('Test')
+response=table.get_item(Key={"key":"value"})
+print(response["Item"])
+
+import boto3
+db=boto3.resource('dynamodb')
+table=db.Table('Test')
+response=table.delete_item(Key={"key":"value"})
+print(response["Item"])
+
+import boto3
+db=boto3.resource('dynamodb')
+table=db.Table('Test')
+response=table.describe_table(TableName="DHT")
+print(response)
+
+S3 Bucket:
+----------
+import boto3
+import os
+import sys
+import pandas
+import matplotlib.pyplot as plt
+import datetime
+% matplotlib inline
+
+list_dir=os.listdir()
+os.rename("IMG_7042.jpg","soumil.jpg")
+os.rename()
+
+d=datetime.datetime.now()
+cr_time="{}{}{}".format(d.month,d.day,d.year)
+client=boto3.client('s3')
+response=client.create_bucket(ACL='private',Bucket="name",CreateBucketConfiguration={'LocationConstraint':'us-west-1'})
+print(response)
+os.listdir()
+with open("soumil.jpg","rb") as f:
+    data=f.read()
+    response=client.put_object(ACL='private',Body=data,Bucket='soumilnitinshah{}'.format(Current_time),Key='soumil.jpg')
+    print(response)
+os.listdir()
+with open('apple.jpg','rb') as f:
+   apple=f.read()
+   response=client.put_object(ACL='private',Body=apple,Bucket='soumilshah{}'.format(Current_time),Keys='apple.jpg')
+   print(response)
+
+#Delete a file in S3:
+response=client.delete_object(Bucket='soumilshah{}'.format(Current_time),Key='apple.jpg')
+print(response)
+
+#Getting the objects in S3 bucket.
+response=client.list_objects(Bucket='soumilnitinshah{}'.format(Current_time))
+for x in response.get("Contents",None):
+   print(x.get("Key",None))
+response=client.list_buckets()
+print(response)
+
+for  x in response.get("Buckets",None):
+    print(x.get("Name",None))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
