@@ -1,0 +1,11 @@
+Transfer Acceleration
+Object Lifecycle
+Object Transition
+Bucket Policy
+Scope of S3
+Versioning
+Replication
+Durability
+High Availibility
+Object Lock
+Storage Classes
